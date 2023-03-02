@@ -1,0 +1,18 @@
+Angular Component : 
+    Entire page divided into components. Ex: Menu components, footer components, list todos components.
+    These components are responsible for page display and user actions and styling
+    Component is associated with 
+        Template : html file 
+        Style : CSS file
+        Code : Typescript file 
+Component: 
+    It is indicated by @Component decorator. decorator is like annotation 
+    Component has 3 attributes
+        selector is to identify the app by using tag name ot give in html file
+        templateUrl is to specify the path for html file for the app
+        styleUrls is to specify the path for css file for the app
+Interpolation :
+    Its like parameterization member variables exported can be used with Interpolation
+    ex: {{title}}
+
+Data binding : Taking the data showing it in the view with the help of Interpolation
