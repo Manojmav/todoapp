@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
+import { HardcodedAuthenticationService } from '../service/hardcoded-authentication.service';
 
 @Component({
   selector: 'app-login',
@@ -8,7 +9,7 @@ import { Router } from '@angular/router';
 })
 export class LoginComponent {
 
-  constructor(private router:Router){
+  constructor(private router: Router, private hcAuthentication: HardcodedAuthenticationService) {
 
   }
   username = 'angularapp'
@@ -17,13 +18,13 @@ export class LoginComponent {
   invalidLogin: boolean = false
 
   handleLogin() {
-    if (this.username === 'angularapp' && this.password === 'dummy') {
+    // if (this.username === 'angularapp' && this.password === 'dummy') {
+    if (this.hcAuthentication.authenticate(this.username, this.password)) {
       this.invalidLogin = false
       this.router.navigate(['welcome', this.username])
     }
     else {
-      this.invalidLogin = true 
+      this.invalidLogin = true
     }
-    console.log("Login button clicked ", this.username);
   }
 }
