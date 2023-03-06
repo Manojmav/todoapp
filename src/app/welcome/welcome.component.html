@@ -1,3 +1,13 @@
 <h1>Welcome!</h1>
 <div class="container">Welcome {{name}}! To manage the todos, click <a routerLink="/todos">here.</a>
 </div>
+<br>
+<br>
+<div class="container">Click Welcome button to get message from spring api
+    <div> <button type="button" (click)="getWelcomeMessage()" class="btn btn-success">Welcome</button>
+    </div>
+</div>
+
+<div *ngIf="welcomeMessageFromBC ">
+    Your customized message from the webservices <h2> {{welcomeMessageFromBC}}</h2>
+</div>
