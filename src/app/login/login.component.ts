@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
+import { BasicAuthenticationService } from '../service/Basic-authentication.service';
 import { HardcodedAuthenticationService } from '../service/hardcoded-authentication.service';
 
 @Component({
@@ -9,10 +10,14 @@ import { HardcodedAuthenticationService } from '../service/hardcoded-authenticat
 })
 export class LoginComponent {
 
-  constructor(private router: Router, private hcAuthentication: HardcodedAuthenticationService) {
+  constructor(
+    private router: Router,
+    private hcAuthentication: HardcodedAuthenticationService,
+    private basicAuthentication: BasicAuthenticationService
+  ) {
 
   }
-  username = 'angularapp'
+  username = ''
   password = ''
   errorMessage = 'Invalid credentials'
   invalidLogin: boolean = false
@@ -26,5 +31,19 @@ export class LoginComponent {
     else {
       this.invalidLogin = true
     }
+  }
+
+  handleBasicAuthLogin() {
+    // if (this.username === 'angularapp' && this.password === 'dummy') {
+    this.basicAuthentication.executeAuthenticationService(this.username, this.password).subscribe(
+      response => {
+        console.log(response)
+        this.invalidLogin = false
+        this.router.navigate(['welcome', this.username])
+      },
+      error => {
+        console.log(error)
+        this.invalidLogin = true
+      })
   }
 }
