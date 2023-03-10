@@ -46,4 +46,18 @@ export class LoginComponent {
         this.invalidLogin = true
       })
   }
+
+  handleJWTAuthLogin() {
+    // if (this.username === 'angularapp' && this.password === 'dummy') {
+    this.basicAuthentication.executeJWTAuthenticationService(this.username, this.password).subscribe(
+      response => {
+        console.log(response)
+        this.invalidLogin = false
+        this.router.navigate(['welcome', this.username])
+      },
+      error => {
+        console.log(error)
+        this.invalidLogin = true
+      })
+  }
 }

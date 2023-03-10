@@ -25,7 +25,7 @@ export class TodoComponent implements OnInit {
     this.id = this.route.snapshot.params['id'];
     this.todo = new Todo(this.id, "", "", false, new Date());
     if (this.id != -1) {
-      this.service.retrieveToDo('Angular', this.id).subscribe(
+      this.service.retrieveToDo('angularapp', this.id).subscribe(
         response => {
           console.log(response);
           this.todo = response
@@ -35,8 +35,8 @@ export class TodoComponent implements OnInit {
   }
 
   saveToDo() {
-    if (this.id != -1) {
-      this.service.createTodo('Angular', this.todo).subscribe(
+    if (this.id == -1) {
+      this.service.createTodo('angularapp', this.todo).subscribe(
         response => {
           console.log(response)
           this.router.navigate(['todos']);
@@ -44,7 +44,7 @@ export class TodoComponent implements OnInit {
         })
     }
     else {
-      this.service.updateTodo('Angular', this.id, this.todo).subscribe(
+      this.service.updateTodo('angularapp', this.id, this.todo).subscribe(
         response => {
           console.log(response)
           this.router.navigate(['todos']);

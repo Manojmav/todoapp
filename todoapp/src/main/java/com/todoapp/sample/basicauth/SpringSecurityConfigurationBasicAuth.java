@@ -1,4 +1,4 @@
-package com.todoapp.sample.todoapp.basicauth;
+package com.todoapp.basicauth;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

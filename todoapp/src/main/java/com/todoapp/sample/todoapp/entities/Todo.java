@@ -1,26 +1,31 @@
 package com.todoapp.sample.todoapp.entities;
 
 import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
 
 import java.util.Date;
 
 @Entity
-public class ToDo {
+public class Todo {
 
   @Id
-  private long id;
-  private String userName;
+  @GeneratedValue
+  private Long id;
+  private String username;
   private String description;
   private Date targetDate;
   private boolean isCompleted;
 
-  public ToDo(long id, String userName, String description, Date targetDate, boolean isCompleted) {
+  public Todo(long id, String username, String description, Date targetDate, boolean isCompleted) {
     this.id = id;
-    this.userName = userName;
+    this.username = username;
     this.description = description;
     this.targetDate = targetDate;
     this.isCompleted = isCompleted;
+  }
+
+  public Todo() {
   }
 
   public long getId() {
@@ -31,12 +36,12 @@ public class ToDo {
     this.id = id;
   }
 
-  public String getUserName() {
-    return userName;
+  public String getUsername() {
+    return username;
   }
 
-  public void setUserName(String userName) {
-    this.userName = userName;
+  public void setUsername(String username) {
+    this.username = username;
   }
 
   public String getDescription() {

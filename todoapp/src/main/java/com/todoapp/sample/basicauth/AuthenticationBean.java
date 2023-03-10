@@ -1,4 +1,4 @@
-package com.todoapp.sample.todoapp.basicauth;
+package com.todoapp.basicauth;
 
 public class AuthenticationBean {
 

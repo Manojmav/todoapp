@@ -38,7 +38,7 @@ export class ListTodosComponent implements OnInit {
   }
 
   refreshToDos() {
-    this.toDoDataService.retrieveAllToDos("welcome").subscribe(
+    this.toDoDataService.retrieveAllToDos("angularapp").subscribe(
       response => {
         this.todos = response;
         //console.log(this.todos);
@@ -48,7 +48,7 @@ export class ListTodosComponent implements OnInit {
 
   deleteTodo(id: number) {
     console.log(`Delete To do ${id}`);
-    this.toDoDataService.deleteToDo("welcome", id).subscribe(
+    this.toDoDataService.deleteToDo("angularapp", id).subscribe(
       response => {
         console.log(response);
         this.message = `Delete Todo of ${id} is successful!!`

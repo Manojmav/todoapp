@@ -3,6 +3,13 @@
   "version": "0.2.0",
   "configurations": [
     {
+      "type": "java",
+      "name": "TodoappApplication",
+      "request": "launch",
+      "mainClass": "com.todoapp.sample.todoapp.TodoappApplication",
+      "projectName": "todoapp"
+    },
+    {
       "name": "ng serve",
       "type": "pwa-chrome",
       "request": "launch",

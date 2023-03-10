@@ -1,6 +1,6 @@
 package com.todoapp.sample.todoapp.services;
 
-import com.todoapp.sample.todoapp.entities.ToDo;
+import com.todoapp.sample.todoapp.entities.Todo;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -9,23 +9,23 @@ import java.util.List;
 
 @Service
 public class ToDoServices {
-  private static List<ToDo> todos = new ArrayList();
+  private static List<Todo> todos = new ArrayList();
   private static long counter = 0;
 
   static {
-    todos.add(new ToDo(++counter, "AngularApp", "Learn to Code", new Date(), false));
-    todos.add(new ToDo(++counter, "AngularApp", "Learn Java", new Date(), false));
-    todos.add(new ToDo(++counter, "AngularApp", "Learn Spring", new Date(), false));
-    todos.add(new ToDo(++counter, "AngularApp", "Learn Angular", new Date(), false));
-    todos.add(new ToDo(++counter, "AngularApp", "Learn TypeScript", new Date(), false));
+    todos.add(new Todo(++counter, "AngularApp", "Learn to Code", new Date(), false));
+    todos.add(new Todo(++counter, "AngularApp", "Learn Java", new Date(), false));
+    todos.add(new Todo(++counter, "AngularApp", "Learn Spring", new Date(), false));
+    todos.add(new Todo(++counter, "AngularApp", "Learn Angular", new Date(), false));
+    todos.add(new Todo(++counter, "AngularApp", "Learn TypeScript", new Date(), false));
   }
 
-  public List<ToDo> findAll() {
+  public List<Todo> findAll() {
     return todos;
   }
 
-  public ToDo deleteToDoById(long id) {
-    ToDo todo = findById(id);
+  public Todo deleteToDoById(long id) {
+    Todo todo = findById(id);
     if (todo == null) {
       return null;
     }
@@ -36,7 +36,7 @@ public class ToDoServices {
 
   }
 
-  public ToDo saveTodo(ToDo todo) {
+  public Todo saveTodo(Todo todo) {
     if (todo.getId() == -1 || todo.getId() == 0) {
       todo.setId(++counter);
       todos.add(todo);
@@ -48,8 +48,8 @@ public class ToDoServices {
   }
 
 
-  public ToDo findById(long id) {
-    for (ToDo toDo : todos) {
+  public Todo findById(long id) {
+    for (Todo toDo : todos) {
       if (toDo.getId() == id) {
         return toDo;
       }
